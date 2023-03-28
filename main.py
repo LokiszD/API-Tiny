@@ -5,15 +5,25 @@ from estoque_produto import EstoqueProdutos
 # Parametros da API
 token = '72be570119ddd8ab7b94cd7d93e9cd2aaaf9a762' # Cookie
 
-# Rodar Pesquisa de Expedição
-# PesquisaExpedicao(token).rodarPesquisaExpedicao()
+while True:
+    numeroMenu = str(input('Digite 1 para ir ao Menu de Expedição\nDigite 2 para ir ao Menu de Pedidos do Ecommerce\nDigite 3 para conferir os produtos com saldo negativo ou zerado\nDigito: '))
+    if numeroMenu == '1' or numeroMenu == '2' or numeroMenu == '3':
+        break
+    else:
+        print('Digito Invalido, tente novamente...\n')
 
-# Rodar pedidos do Ecommerce
-# dataInicio = '20/03/2023'
-# dataFinal = '22/03/2023'
-#
-# PedidoEcommerce(token, dataInicio, dataFinal).rodarPedidoEcommerce()
+if numeroMenu == '1':
+    # Rodar Pesquisa de Expedição
+    PesquisaExpedicao(token).rodarPesquisaExpedicao()
 
-# Estoque zerado ou negativo
-EstoqueProdutos(token).rodarEstoqueNegativoZerado()
+elif numeroMenu == '2':
+    # Rodar pedidos do Ecommerce
+    dataInicio = '20/03/2023'
+    dataFinal = '22/03/2023'
+    PedidoEcommerce(token, dataInicio, dataFinal).rodarPedidoEcommerce()
+
+elif numeroMenu == '3':
+    # Estoque zerado ou negativo - gera um txt
+    EstoqueProdutos(token).rodarEstoqueNegativoZerado()
+
 

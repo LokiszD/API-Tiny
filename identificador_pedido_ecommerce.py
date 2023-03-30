@@ -21,15 +21,15 @@ class PedidoEcommerce:
         dataFinal = self.dataFinal
 
         cont = 0
+        paginaAtual = 1
 
         paramsProd = {
             "token": token,
             "formato": "json",
-            "pagina": 1,
+            "pagina": paginaAtual,
             "dataInicial": dataInicial,
             "dataFinal": dataFinal
         }
-        paginaAtual = 1
 
         try:
             while True:
@@ -37,9 +37,11 @@ class PedidoEcommerce:
                 paramsProd['pagina'] = paginaAtual  # atualiza a página atual
                 responsePedido = requests.get(url=urlPedido, params=paramsProd)
                 respostaJsonPedido = responsePedido.json()
+
                 pedidos = respostaJsonPedido['retorno']['pedidos']
 
-                print(f'Pagina Atual: {paginaAtual}')
+                pagina = paramsProd['pagina']
+                print(f'Pagina Atual: {pagina}')
 
                 # passar por todos produtos
                 for pedido in pedidos:

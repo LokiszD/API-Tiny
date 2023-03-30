@@ -18,8 +18,8 @@ if numeroMenu == '1':
 
 elif numeroMenu == '2':
     # Rodar pedidos do Ecommerce
-    dataInicio = '20/03/2023'
-    dataFinal = '22/03/2023'
+    dataInicio = input('Data Inicial (dd/mm/aaaa): ')
+    dataFinal = input('Data Final (dd/mm/aaaa): ')
     PedidoEcommerce(token, dataInicio, dataFinal).rodarPedidoEcommerce()
 
 elif numeroMenu == '3':
